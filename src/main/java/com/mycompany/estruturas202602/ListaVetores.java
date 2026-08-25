@@ -9,6 +9,18 @@ public class ListaVetores {
         dados = new Integer[tam];
     }
     
+    Integer removePosicao(int i){
+        if ((i >= 0) && (i < this.qt)){
+            Integer item = dados[i];
+            for (int j = i+1; j < qt; j++)
+                dados[j-1] = dados[j];
+            return item;
+        }
+        else
+            return null; 
+    }
+    
+    
     Integer removeFinal(){
         if (qt > 0){
             Integer temp = dados[qt-1];
