@@ -20,10 +20,13 @@ public class TestaListaVetores {
         System.out.println("removeu -> " + lista.removeFinal());
         System.out.println("removeu -> " + lista.removeFinal());
         System.out.println("removeu -> " + lista.removeFinal());
+        
+        lista.imprime();
         System.out.println("removeu -> " + lista.removeFinal());
         System.out.println("removeu -> " + lista.removeFinal());
         
         lista.imprime();
+       
         
     
     
