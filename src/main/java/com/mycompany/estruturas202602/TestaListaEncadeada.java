@@ -6,16 +6,16 @@ public class TestaListaEncadeada {
     public static void main(String[] args){
     
         ListaEncadeada lista = new ListaEncadeada();
-        lista.insere(13);
-        lista.insere(22);
-        lista.insere(50);
-        lista.insere(77);
+        lista.insereOrdenado(153);
+        lista.insereOrdenado(22);
+        lista.insereOrdenado(50);
+        lista.insereOrdenado(777);
         
         lista.imprimeLista();
     
-        lista.removeNodo(77);
+        lista.removeNodo(50);
         
-        lista.insere(88);
+        lista.insereOrdenado(88);
         
         
 

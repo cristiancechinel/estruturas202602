@@ -1,24 +1,29 @@
 
 package com.mycompany.estruturas202602;
 
-public class ListaEncadeada {
+public class ListaEncadeada02 {
 
-    private Nodo inicio; 
+    private Nodo inicio, ultimo; 
     
     private class Nodo{
         Nodo prox;
         Integer dado;
     }
     
-    ListaEncadeada(){
+    ListaEncadeada02(){
         inicio = null;
     }
 
-    void insere(Integer n){
+    //adaptar insercao inicio
+    void insereInicio(Integer n){
         Nodo novo = new Nodo();
         novo.dado = n;
+        
         novo.prox = inicio;
         inicio = novo;
+        if (ultimo == null) 
+            ultimo = inicio;
+        
     }
     
     
@@ -44,7 +49,7 @@ public class ListaEncadeada {
         }
     }   
     
-    
+    //adaptar remocao inicio
     Integer remove(){
         if (inicio != null){
             Integer temp = inicio.dado;
