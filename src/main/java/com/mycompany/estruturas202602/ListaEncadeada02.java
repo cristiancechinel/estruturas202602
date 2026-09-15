@@ -50,10 +50,18 @@ public class ListaEncadeada02 {
     }   
     
     //adaptar remocao inicio
-    Integer remove(){
+    Integer removeInicio(){
+        
+        //verificar se existe algum elemento
         if (inicio != null){
             Integer temp = inicio.dado;
-            inicio = inicio.prox;
+            
+            if (inicio == ultimo)
+                inicio = ultimo = null;
+            else
+                inicio = inicio.prox;
+            
+            
             return temp;
        }
         return null;
@@ -62,11 +70,7 @@ public class ListaEncadeada02 {
     Integer removeNodo(Integer n){
         Nodo ant = null;
         Nodo temp = inicio;
-        //pergunta, é possível inverter a ordem das verificações? 
-        //exemplo: 
-        //        while (temp.dado!= null && temp!= null)
-        
-        //                     
+                    
         while (temp != null && temp.dado != n){
             ant = temp;
             temp = temp.prox;
@@ -75,14 +79,20 @@ public class ListaEncadeada02 {
         if (temp == null) return null;
         
         //encontrou na primeira posicao
-        if (ant == null){
-            Integer retira = temp.dado;
-            inicio = inicio.prox;
-            return retira;
-        }
-        //encontrou no meio ou final
         Integer retira = temp.dado;
-        ant.prox = temp.prox;
+       
+        if (ant == null){
+            if (inicio == ultimo)
+                inicio = ultimo = null;
+            else 
+                inicio = inicio.prox;
+        }
+        else { 
+            //encontrou no meio ou final
+            ant.prox = temp.prox;
+            if (ultimo == temp) //encontrou no final
+                ultimo = ant;
+        }
         return retira;
     }
     
