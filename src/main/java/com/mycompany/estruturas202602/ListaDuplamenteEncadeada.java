@@ -1,16 +1,17 @@
 
 package com.mycompany.estruturas202602;
 
-public class ListaEncadeada02 {
+public class ListaDuplamenteEncadeada {
 
     private Nodo inicio, ultimo; 
     
     private class Nodo{
         Nodo prox;
+        Nodo ant;
         Integer dado;
     }
     
-    ListaEncadeada02(){
+    ListaDuplamenteEncadeada(){
         inicio = null;
         ultimo = null;
     }
@@ -20,14 +21,34 @@ public class ListaEncadeada02 {
         Nodo novo = new Nodo();
         novo.dado = n;
         
+        novo.ant = null;
         novo.prox = inicio;
-        inicio = novo;
-        if (ultimo == null) 
-            ultimo = inicio;
         
+        if (inicio == null)
+            ultimo = novo;
+        else
+            inicio.ant = novo;
+        
+        inicio = novo;
     }
     
+    void insereUltimo(Integer n){
+        Nodo novo = new Nodo();
+        novo.dado = n;
+        
+        novo.prox = null;
+        novo.ant = ultimo;
+        
+        if (inicio == null)
+            inicio = novo;
+        else
+            ultimo.prox = novo;
+        
+        ultimo = novo;
     
+    }
+    
+   /* 
     void insereOrdenado(Integer n){
         Nodo ant = null;
         Nodo novo = new Nodo();
@@ -50,24 +71,40 @@ public class ListaEncadeada02 {
         }
     }   
     
-    //adaptar remocao inicio
-    Integer removeInicio(){
+    */
+    
+    Integer removeUltimo(){
+        if (inicio != null){
+            Integer temp = ultimo.dado;
+            if (inicio == ultimo)
+                inicio = ultimo = null;
+            else{
+                ultimo = ultimo.ant;
+                ultimo.prox = null;
+            }
+            return temp;
         
+        }
+        return null;
+    }
+    
+    Integer removeInicio(){
         //verificar se existe algum elemento
         if (inicio != null){
             Integer temp = inicio.dado;
-            
             if (inicio == ultimo)
                 inicio = ultimo = null;
-            else
+            else {
                 inicio = inicio.prox;
-            
-            
+                inicio.ant = null;
+            }
             return temp;
        }
         return null;
     }
- 
+    
+    
+ /*
     Integer removeNodo(Integer n){
         Nodo ant = null;
         Nodo temp = inicio;
@@ -120,8 +157,21 @@ public class ListaEncadeada02 {
             temp = temp.prox;
         }
     }
+    */
+    
+    void imprimeListaReversa(){
+        System.out.println("impressão invertida");
+    
+        for (Nodo temp = ultimo; temp != null; temp = temp.ant)
+            System.out.print(temp.dado + " -> ");
+        System.out.println();
+        
+    
+    }
+    
     
     void imprimeLista(){
+        System.out.println("impressão normal");
         
         for (Nodo temp = inicio; temp != null; temp = temp.prox)
             System.out.print(temp.dado + " -> ");
