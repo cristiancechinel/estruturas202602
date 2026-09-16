@@ -16,6 +16,22 @@ public class ListaDuplamenteEncadeada {
         ultimo = null;
     }
 
+   void concatenaLista(ListaDuplamenteEncadeada L2){
+       
+       if (L2.inicio != null){
+           if (this.inicio == null){
+               this.inicio = L2.inicio;
+               this.ultimo = L2.ultimo;
+           }
+           else {
+               this.ultimo.prox = L2.inicio;
+               L2.inicio.ant = this.ultimo;
+               this.ultimo = L2.ultimo;
+           }
+       }
+   } 
+    
+   
     //adaptar insercao inicio
     void insereInicio(Integer n){
         Nodo novo = new Nodo();
@@ -103,37 +119,28 @@ public class ListaDuplamenteEncadeada {
         return null;
     }
     
-    
- /*
     Integer removeNodo(Integer n){
-        Nodo ant = null;
+        //Nodo ant = null;
         Nodo temp = inicio;
-                    
-        while (temp != null && temp.dado != n){
-            ant = temp;
+        while (temp != null && temp.dado != n)
             temp = temp.prox;
-        }
         //não encontrou
         if (temp == null) return null;
-        
-        //encontrou na primeira posicao
+
         Integer retira = temp.dado;
        
-        if (ant == null){
-            if (inicio == ultimo)
-                inicio = ultimo = null;
-            else 
-                inicio = inicio.prox;
-        }
-        else { 
-            //encontrou no meio ou final
-            ant.prox = temp.prox;
-            if (ultimo == temp) //encontrou no final
-                ultimo = ant;
-        }
+        if (temp == inicio) 
+            inicio = inicio.prox;
+        else
+            temp.ant.prox = temp.prox;
+        if (temp == ultimo)
+            ultimo = ultimo.ant;
+        else
+            temp.prox.ant = temp.ant;
         return retira;
     }
     
+    /*
     
     void imprimeListaRec(){
         System.out.println("impressão recursiva");

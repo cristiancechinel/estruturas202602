@@ -5,20 +5,20 @@ public class TestaListaEncadeada {
     
     public static void main(String[] args){
     
-        ListaDuplamenteEncadeada lista = new ListaDuplamenteEncadeada();
-       
-        lista.insereInicio(15);
-        lista.insereInicio(20);
-        lista.insereInicio(25);
+        ListaDuplamenteEncadeada L1 = new ListaDuplamenteEncadeada();
+        ListaDuplamenteEncadeada L2 = new ListaDuplamenteEncadeada();
+
+       // L1.insereInicio(20);
+       // L1.insereInicio(30);
+        L1.imprimeLista();
         
+        L2.insereInicio(66);
+        L2.insereInicio(99);
+        L2.imprimeLista();
         
-        
-        lista.imprimeLista();
-        
-        lista.removeInicio();
-        lista.removeUltimo();
-        
-        lista.imprimeLista();
+        L1.concatenaLista(L2);
+        L1.imprimeLista();
+
        
     }
     
