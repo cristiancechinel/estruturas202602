@@ -13,6 +13,37 @@ public class NodoArvore {
         this.esq = e;
         this.dir = d;
     }
+
+    void imprimePosOrdem(NodoArvore atual){
+        if (atual !=null){
+            System.out.print("<");
+            imprimePosOrdem(atual.esq);
+            imprimePosOrdem(atual.dir);
+            System.out.print(atual.valor);
+            System.out.print(">");
+        }
+    }
+
+    
+    void imprimeSimetrica(NodoArvore atual){
+        if (atual != null){
+            System.out.print("<");
+            imprimeSimetrica(atual.esq);
+            System.out.print(atual.valor);
+            imprimeSimetrica(atual.dir);
+            System.out.print(">");
+        }
+    }
+
+    void imprimePreOrdem(NodoArvore atual){
+        if (atual != null){
+            System.out.print("<");
+            System.out.print(atual.valor);
+            imprimePreOrdem(atual.esq);
+            imprimePreOrdem(atual.dir);
+            System.out.print(">");
+        }
+    }
     
     NodoArvore insere(NodoArvore atual, int valor){
     
