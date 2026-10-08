@@ -44,6 +44,30 @@ public class NodoArvore {
             System.out.print(">");
         }
     }
+    NodoArvore remove(NodoArvore nodo, int v){
+        if (nodo == null) 
+            return null;
+        else if (v < nodo.valor) 
+                nodo.esq = remove(nodo.esq, v);
+        else if (v > nodo.valor) 
+                nodo.dir = remove(nodo.dir, v);
+        else {//encontrou
+            if (nodo.esq == null & nodo.dir == null)//sem filhos
+                return null;
+            if (nodo.esq == null) return nodo.dir;
+            if (nodo.dir == null) return nodo.esq;
+           
+            NodoArvore temp = nodo.esq;
+            while (temp.dir != null)
+                temp = temp.dir;
+            nodo.valor = temp.valor;
+            temp.valor = v;
+            nodo.esq = remove(nodo.esq, v);
+        }
+        return nodo;
+    }
+    
+    
     
     NodoArvore insere(NodoArvore atual, int valor){
     

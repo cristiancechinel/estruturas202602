@@ -4,7 +4,22 @@ package com.mycompany.estruturas202602;
 public class TestaNodoArvore {
     
     public static void main(String[] args){
+        
+        ArvoreBinaria a = new ArvoreBinaria();
+        a.insere(75);
+        a.insere(68);
+        a.insere(90);
+        a.insere(65);
+        a.insere(73);
+        a.insere(85);
+        a.insere(93);
+        a.insere(86);
+        a.imprimePre();
+        
+        a.remove(75);
+        a.imprimePre();
     
+    /*
         NodoArvore a = new NodoArvore(80, null, null);
        // a = a.insere(a, 80);
         a = a.insere(a, 70);
@@ -32,7 +47,7 @@ public class TestaNodoArvore {
         // desenvolver método para calcular qt de elementos
         
         
-    
+    */
     }
     
 }
