@@ -28,7 +28,20 @@ public class NodoAVL {
                    max(altura(atual.esq), altura(atual.dir));    
     }
     
+    NodoAVL rotacaoEsquerdaDireita(NodoAVL atual){
+        atual.esq = atual.rotacaoEsquerda(atual.esq);
+        atual = atual.rotacaoDireita(atual);
+        return atual;
+    }
+
+    NodoAVL rotacaoDireitaEsquerda(NodoAVL atual){
+        atual.dir = atual.rotacaoDireita(atual.dir);
+        atual = atual.rotacaoEsquerda(atual);
+        return atual;
+    }
+    
     NodoAVL rotacaoEsquerda(NodoAVL atual){
+        System.out.println("rotacao Esquerda" + atual.valor);
         NodoAVL aux = atual.dir;
         atual.dir = aux.esq;
         aux.esq = atual;
@@ -36,9 +49,12 @@ public class NodoAVL {
     }
     
     NodoAVL rotacaoDireita(NodoAVL atual){
-    
-    
-    
+        
+        System.out.println("rotacao Direita" + atual.valor);
+        NodoAVL aux = atual.esq;
+        atual.esq = aux.dir;
+        aux.dir = atual;
+        return aux;
     }
     
     

@@ -4,15 +4,28 @@ package com.mycompany.estruturas202602;
 public class TestaNodoArvore {
     
     public static void main(String[] args){
+       
+        NodoAVL a = new NodoAVL(20, null, null);
+        a = a.insere(a, 30);
+        a = a.insere(a, 25);
+        a.imprimePreOrdem(a);
+        System.out.println("Altura = " + a.altura(a));
+
+        a = a.rotacaoDireitaEsquerda(a);
+        a.imprimePreOrdem(a);
+        System.out.println("Altura = " + a.altura(a));
+
         
-        ArvoreBinaria a = new ArvoreBinaria();
-        a.insere(10);
-        a.insere(7);
-        a.insere(15);
-        a.insere(20);
-        a.insere(25);
-        a.imprimePre();
-        System.out.println("Altura = " + a.altura());
+        
+        
+       // ArvoreBinaria a = new ArvoreBinaria();
+       // a.insere(10);
+       // a.insere(7);
+        //a.insere(15);
+        //a.insere(20);
+       // a.insere(25);
+        //a.imprimePre();
+       // System.out.println("Altura = " + a.altura());
         /*    a.insere(75);
         a.insere(68);
         a.insere(90);
