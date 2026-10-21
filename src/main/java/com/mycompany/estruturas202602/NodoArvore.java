@@ -14,6 +14,21 @@ public class NodoArvore {
         this.dir = d;
     }
 
+    int max(int a, int b){
+        if (a > b) return a;
+        else return b;
+    }
+    
+    int altura(NodoArvore atual){
+    
+        if (atual == null) 
+            return -1;
+        else 
+            return 1 + 
+                   max(altura(atual.esq), altura(atual.dir));    
+    }
+    
+    
     void imprimePosOrdem(NodoArvore atual){
         if (atual !=null){
             System.out.print("<");

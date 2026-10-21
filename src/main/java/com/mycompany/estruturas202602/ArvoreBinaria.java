@@ -8,6 +8,12 @@ public class ArvoreBinaria {
         this.raiz = null;
     }
     
+    int altura(){
+        if (raiz == null) return -1;
+        else return raiz.altura(raiz);
+    
+    }
+    
     void remove(int v){
         if (raiz != null)
             raiz.remove(raiz, v);

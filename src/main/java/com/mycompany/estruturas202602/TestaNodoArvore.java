@@ -6,7 +6,14 @@ public class TestaNodoArvore {
     public static void main(String[] args){
         
         ArvoreBinaria a = new ArvoreBinaria();
-        a.insere(75);
+        a.insere(10);
+        a.insere(7);
+        a.insere(15);
+        a.insere(20);
+        a.insere(25);
+        a.imprimePre();
+        System.out.println("Altura = " + a.altura());
+        /*    a.insere(75);
         a.insere(68);
         a.insere(90);
         a.insere(65);
@@ -17,7 +24,9 @@ public class TestaNodoArvore {
         a.imprimePre();
         
         a.remove(75);
-        a.imprimePre();
+
+        
+*/        
     
     /*
         NodoArvore a = new NodoArvore(80, null, null);
