@@ -16,7 +16,7 @@ public class ArvoreBinaria {
     
     void remove(int v){
         if (raiz != null)
-            raiz.remove(raiz, v);
+            raiz = raiz.remove(raiz, v);
         
     }
     

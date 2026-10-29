@@ -41,7 +41,7 @@ public class NodoAVL {
     }
     
     NodoAVL rotacaoEsquerda(NodoAVL atual){
-        System.out.println("rotacao Esquerda" + atual.valor);
+        System.out.println("rotacao Esquerda " + atual.valor);
         NodoAVL aux = atual.dir;
         atual.dir = aux.esq;
         aux.esq = atual;
@@ -50,7 +50,7 @@ public class NodoAVL {
     
     NodoAVL rotacaoDireita(NodoAVL atual){
         
-        System.out.println("rotacao Direita" + atual.valor);
+        System.out.println("rotacao Direita " + atual.valor);
         NodoAVL aux = atual.esq;
         atual.esq = aux.dir;
         aux.dir = atual;
@@ -91,10 +91,22 @@ public class NodoAVL {
     NodoAVL remove(NodoAVL nodo, int v){
         if (nodo == null) 
             return null;
-        else if (v < nodo.valor) 
+        else if (v < nodo.valor) {
                 nodo.esq = remove(nodo.esq, v);
-        else if (v > nodo.valor) 
+                if (altura(nodo.esq) - altura(nodo.dir) == -2)//desbalanceado
+                    if (altura(nodo.dir.esq)- altura(nodo.dir.dir) == 1)//simples esq
+                        nodo = rotacaoDireitaEsquerda(nodo);
+                    else    
+                        nodo = rotacaoEsquerda(nodo);
+        }
+        else if (v > nodo.valor){ 
                 nodo.dir = remove(nodo.dir, v);
+                if (altura(nodo.esq) - altura(nodo.dir) == 2)
+                    if (altura(nodo.esq.esq) - altura(nodo.esq.dir) == -1)
+                        nodo = rotacaoEsquerdaDireita(nodo); 
+                    else   
+                        nodo = rotacaoDireita(nodo);
+        }
         else {//encontrou
             if (nodo.esq == null & nodo.dir == null)//sem filhos
                 return null;
@@ -118,13 +130,27 @@ public class NodoAVL {
         if (atual == null) 
             atual = new NodoAVL(valor, null, null);
         else
-            if (valor < atual.valor)
+            if (valor < atual.valor){
                 atual.esq = insere(atual.esq, valor);
-            else
+                if (altura(atual.esq) - altura(atual.dir) == 2)
+                    if (valor < atual.esq.valor) //simples
+                        atual = rotacaoDireita(atual);
+                    else // dupla
+                        atual = rotacaoEsquerdaDireita(atual);
+            }
+            else{
                 atual.dir = insere(atual.dir, valor);
+                if (altura(atual.esq) - altura(atual.dir) == -2)
+                    if (valor > atual.dir.valor) //simples
+                        atual = rotacaoEsquerda(atual);
+                    else //dupla
+                        atual = rotacaoDireitaEsquerda(atual);
+            }
         return atual;
 
     }
+    
+    
     
     
     int somatorio(NodoAVL nodo){

@@ -5,10 +5,20 @@ public class TestaNodoArvore {
     
     public static void main(String[] args){
        
-        NodoAVL a = new NodoAVL(20, null, null);
-        a = a.insere(a, 30);
-        a = a.insere(a, 25);
+        NodoAVL a = new NodoAVL(8, null, null);
+        a = a.insere(a, 3);
+        a = a.insere(a, 10);
+        a = a.insere(a, 9);
+        a = a.insere(a, 15);
+        
+        a = a.remove(a, 3);
+        
         a.imprimePreOrdem(a);
+        
+       
+        
+        
+        /*a.imprimePreOrdem(a);
         System.out.println("Altura = " + a.altura(a));
 
         a = a.rotacaoDireitaEsquerda(a);
