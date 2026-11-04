@@ -1,3 +1,4 @@
+com/mycompany/estruturas202602/TestaGrafo.class
 com/mycompany/estruturas202602/ArvoreAVL.class
 com/mycompany/estruturas202602/TestaListaEncadeada.class
 com/mycompany/estruturas202602/ListaEncadeada$Nodo.class
@@ -10,6 +11,7 @@ com/mycompany/estruturas202602/TestaListaGenerica.class
 com/mycompany/estruturas202602/ListaEncadeada02.class
 com/mycompany/estruturas202602/NodoAVL.class
 com/mycompany/estruturas202602/TestaFilaPilhaEncadeada.class
+com/mycompany/estruturas202602/Grafo.class
 com/mycompany/estruturas202602/ListaDuplamenteEncadeadaGen.class
 com/mycompany/estruturas202602/TestaListaVetores.class
 com/mycompany/estruturas202602/ListaDuplamenteEncadeada$Nodo.class
