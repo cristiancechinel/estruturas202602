@@ -7,6 +7,11 @@ public class FilaEncadeada {
         lista = new ListaDuplamenteEncadeada();
     }
     
+    boolean vazia(){
+        return lista.vazia();
+    
+    }
+    
     void insereFinal(int valor){
         lista.insereUltimo(valor);
     }

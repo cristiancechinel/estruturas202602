@@ -15,6 +15,11 @@ public class Grafo {
         
     }
     
+    int getV(){
+        return this.V;
+        
+    }
+    
     void insereAresta(int nv1, int nv2){
         if (nv1 >= 0 && nv1 <this.V && nv2 >=0 && nv2 < this.V){
             this.mat[nv1][nv2] = 1;

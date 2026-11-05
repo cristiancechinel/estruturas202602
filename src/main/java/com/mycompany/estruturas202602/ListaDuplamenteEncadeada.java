@@ -16,6 +16,11 @@ public class ListaDuplamenteEncadeada {
         ultimo = null;
     }
 
+    boolean vazia(){
+        return inicio == null;
+    
+    } 
+   
    void concatenaLista(ListaDuplamenteEncadeada L2){
        
        if (L2.inicio != null){
