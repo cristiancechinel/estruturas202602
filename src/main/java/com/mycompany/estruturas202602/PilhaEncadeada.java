@@ -8,6 +8,10 @@ public class PilhaEncadeada {
         lista = new ListaDuplamenteEncadeada();
     }
 
+    boolean vazia(){
+        return lista.vazia();
+    
+    }
     void empilha(int valor){
         lista.insereUltimo(valor);
     }

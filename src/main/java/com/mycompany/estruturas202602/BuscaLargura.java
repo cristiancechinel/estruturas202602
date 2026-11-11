@@ -31,8 +31,54 @@ public class BuscaLargura {
             System.out.print(cor[i] + " |");
         }
         System.out.println();
+        
+        System.out.println("Distancia");
+        for (int i = 0; i < g.getV(); i++){
+            System.out.print(dist[i] + " |");
+        }
+        System.out.println();
+        
+        System.out.println("Pai");
+        for (int i = 0; i < g.getV(); i++){
+            System.out.print(pai[i] + " |");
+        }
+        System.out.println();
     }
     
+    void caminho(int destino, String[] cidades){
+        
+        PilhaEncadeada p = new PilhaEncadeada();
+        int aux = destino;
+        p.empilha(destino);
+        while (pai[aux] != null){
+            p.empilha(pai[aux]);
+            aux = pai[aux];
+        }
+        // desempilhar tudo e imprimir cada elemento
+        
+        while (!p.vazia()){
+            int nv = p.desempilha();
+            System.out.print(cidades[nv] + "->");
+        }
+        System.out.println();
+    }
+    
+    void caminho(int destino){
+    
+        PilhaEncadeada p = new PilhaEncadeada();
+        int aux = destino;
+        p.empilha(destino);
+        while (pai[aux] != null){
+            p.empilha(pai[aux]);
+            aux = pai[aux];
+        }
+        // desempilhar tudo e imprimir cada elemento
+        
+        while (!p.vazia())
+            System.out.print(p.desempilha() + "->");
+        System.out.println();
+    }
+   
     void busca(int origem){
         cor[origem] = CINZA;
         FilaEncadeada fila = new FilaEncadeada();
