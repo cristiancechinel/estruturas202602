@@ -25,4 +25,5 @@ com/mycompany/estruturas202602/Recursividade.class
 com/mycompany/estruturas202602/PilhaEncadeada.class
 com/mycompany/estruturas202602/ListaVetoresGenerico.class
 com/mycompany/estruturas202602/NodoArvore.class
+com/mycompany/estruturas202602/BuscaProfundidade.class
 com/mycompany/estruturas202602/TestaNodoArvore.class

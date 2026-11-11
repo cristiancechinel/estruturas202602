@@ -4,6 +4,9 @@ package com.mycompany.estruturas202602;
 public class TestaGrafo {
 
     public static void main(String[] args){
+        
+        /*
+        
         String[] cidades = {"Porto Alegre", "Florianópolis", "Curitiba",
                             "São Paulo", "Belo Horizonte", "Rio de Janeiro", 
                             "Salvador", "Brasília", "Cuiabá", "Fortaleza", "Manaus"};
@@ -23,28 +26,39 @@ public class TestaGrafo {
         bl.busca(0);
         bl.caminho(5, cidades);
         
-        
-/*        g.insereAresta(0, 1);
+        */
+        Grafo g = new Grafo(5);
+        g.insereAresta(0, 1);
         g.insereAresta(0, 3);
         g.insereAresta(1, 2);
         g.insereAresta(2, 3);
+        g.insereAresta(1, 3);
         g.insereAresta(2, 4);
         
         g.imprime();
         
-        BuscaLargura bl = new BuscaLargura(g);
-        bl.busca(4);
+        BuscaProfundidade bp = new BuscaProfundidade(g);
         
-        bl.imprime();
+        bp.DFS();
         
-        bl.caminho(0);
+        bp.imprime();
+        
+        bp.caminho(3);
+        
+        
+        
+        //BuscaLargura bl = new BuscaLargura(g);
+        //bl.busca(4);
+        
+       // bl.imprime();
+        
+        //bl.caminho(0);
 
         //g.insereAresta(3, 4);
         
        // g.imprime();
         
-        //System.out.println("Aresta entre 3 e 4 : " + g.ehAdjacente(3, 4));
-*/    
+        //System.out.println("Aresta entre 3 e 4 : " + g.ehAdjacente(3, 4));    
     
     }
 
